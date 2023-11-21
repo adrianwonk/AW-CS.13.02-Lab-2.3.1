@@ -18,7 +18,8 @@ public class CISQueue {
         size++;
     }
 
-    public int dequeue(){
+    public Integer dequeue(){
+        if (isEmpty()) return null;
         int result = (int) linkedList.getFirst();
         linkedList.removeFirst();
         size--;
@@ -33,13 +34,18 @@ public class CISQueue {
     }
 
     public String toString(){
-        String result = "CISQueue{queue=[";
-        for (var value : linkedList){
-            result += "" + value + ", ";
+        if (isEmpty()){
+            return "CISQueue{queue=[], size=0}";
         }
-        result = result.substring(0,result.length()-2);
-        result += "], size=" + size + "}";
-        return result;
+        else {
+            String result = "CISQueue{queue=[";
+            for (var value : linkedList){
+                result += "" + value + ", ";
+            }
+            result = result.substring(0,result.length()-2);
+            result += "], size=" + size + "}";
+            return result;
+        }
     }
 
     // toString. Returns a description of the queue in, for example, the following format:
