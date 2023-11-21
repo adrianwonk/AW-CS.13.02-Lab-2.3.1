@@ -1,20 +1,46 @@
 import java.util.LinkedList;
-
 public class CISQueue {
 
     // Linked list property.
+    public LinkedList linkedList;
 
     // Size property.
+    public int size;
 
     // Constructor.
+    public CISQueue() {
+        size = 0;
+        linkedList = new LinkedList<Integer>();
+    }
 
-    // Enqueue. This method adds a node to the end of the linked list.
+    public void enqueue(int t){
+        linkedList.addLast(t);
+        size++;
+    }
 
-    // Dequeue. This method removes a node from the beginning of the linked list.
+    public int dequeue(){
+        int result = (int) linkedList.getFirst();
+        linkedList.removeFirst();
+        size--;
+        return result;
+    }
 
-    // isEmpty. Returns a boolean indicating whether the linked list is empty.
+    public boolean isEmpty(){
+        return (size == 0);
+    }
+    public int size(){
+        return size;
+    }
 
-    // size. Returns the size of the queue.
+    public String toString(){
+        String result = "CISQueue{queue=[";
+        for (var value : linkedList){
+            result += "" + value + ", ";
+        }
+        result = result.substring(0,result.length()-2);
+        result += "], size=" + size + "}";
+        return result;
+    }
 
     // toString. Returns a description of the queue in, for example, the following format:
     // CISQueue{queue=[7, 11], size=2}

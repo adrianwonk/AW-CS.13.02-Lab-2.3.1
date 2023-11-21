@@ -34,7 +34,7 @@ class CISQueueTest {
     @org.junit.jupiter.api.Test
     void dequeue() {
 
-        assertEquals(null, cisQueue.dequeue());
+        assertEquals((Float) null, cisQueue.dequeue());
         assertEquals(0, cisQueue.size());
         cisQueue.enqueue(4);
         assertEquals(1, cisQueue.size());
